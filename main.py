@@ -42,10 +42,11 @@ class Product(Base):
     description = Column(String(500))
 Base.metadata.create_all(bind=engine)
 @app.get("/health")
-def health_check():
+def health():
     return {
         "status": "healthy",
-        "application": "ShopEasy API"
+        "application": "ShopEasy API",
+        "version": "2.0"
     }
 class ProductCreate(BaseModel):
     name: str
